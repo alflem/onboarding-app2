@@ -122,17 +122,6 @@ export function OnboardingAccordion() {
                     />
                   </div>
                 ))}
-                <div className="flex items-center justify-between mt-4 pt-2 border-t">
-                  <span className="font-medium">Mark section as complete</span>
-                  <div
-                    className={cn(
-                      "h-5 w-5 rounded-full border flex items-center justify-center",
-                      progress.percentage === 100 ? "bg-primary border-primary" : "border-muted-foreground",
-                    )}
-                  >
-                    {progress.percentage === 100 && <Check className="h-3 w-3 text-primary-foreground" />}
-                  </div>
-                </div>
               </div>
             </AccordionContent>
           </AccordionItem>

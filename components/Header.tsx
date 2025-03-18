@@ -1,25 +1,30 @@
 import Link from "next/link";
+import { Button } from "@/components/ui/button"
 
 export default function Header() {
   return (
-    <header className="210 40% 98% text-black p-4">
+    <header className="bg-white text-black p-8 border-b border-gray-100">
       <nav className="container mx-auto flex justify-between">
         <h1 className="text-xl font-bold">My App</h1>
         <ul className="flex space-x-4">
           <li>
-            <Link href="/" className="hover:underline">
-              Home
-            </Link>
+          <Button variant="ghost"asChild>
+            <Link href="/">Hem</Link>
+          </Button>
           </li>
           <li>
-            <Link href="/about" className="hover:underline">
-              About
-            </Link>
+          <Button variant="ghost" asChild>
+            <Link href="/onboarding">Onboarding</Link>
+          </Button>
           </li>
           <li>
-            <Link href="/contact" className="hover:underline">
-              Contact
-            </Link>
+
+          <Button  asChild>
+            <Link href="/login">Login</Link>
+          </Button>
+
+
+
           </li>
         </ul>
       </nav>
