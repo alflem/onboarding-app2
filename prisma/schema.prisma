@@ -1,0 +1,40 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Organization {
+  id          Int      @id @default(autoincrement())
+  name        String
+  members     User[]
+  checklists  Checklist[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model User {
+  id          Int      @id @default(autoincrement())
+  email       String   @unique
+  password    String
+  role        Role
+  organizationId Int
+  organization Organization @relation(fields: [organizationId], references: [id])
+}
+
+model Checklist {
+  id             Int      @id @default(autoincrement())
+  name           String
+  items          String[]
+  organizationId Int
+  organization   Organization @relation(fields: [organizationId], references: [id])
+}
+
+enum Role {
+  SUPER_USER
+  ADMIN
+  STANDARD
+}
